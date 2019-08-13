@@ -1,0 +1,16 @@
+{
+  "name": "cloud-build-bitbucket",
+  "version": "1.0.0",
+  "description": "Integrating Cloud Build with BitBucket",
+  "main": "index.js",
+  "author": "Eric Jiang <Eric.Jiang@monash.edu>",
+  "license": "unlicensed",
+  "private": true,
+  "scripts": {
+    "deploy:core": "gcloud functions deploy cloud-build --entry-point processPubSubMessage --runtime nodejs10 --region asia-east2 --memory 128MB --trigger-topic cloud-builds --env-vars-file ./.env.yaml ",
+    "deploy": "yarn deploy"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
